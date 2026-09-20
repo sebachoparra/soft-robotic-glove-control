@@ -1,0 +1,54 @@
+# --- ROS 2 colcon build output (project root) ---
+/build/
+/install/
+/log/
+
+# In case colcon is ever invoked from inside ros2_ws directly
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- CMake generated artifacts (do NOT ignore checked-in CMakeLists.txt) ---
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+/Makefile
+**/CMakeFiles/
+**/CMakeCache.txt
+**/cmake_install.cmake
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+*~
+
+# --- Temporary / backup files ---
+*.tmp
+*.bak
+*.swp
+*.ndof_backup
+
+# --- Bulk experimental data (regenerate via tools/pressure/*.py) ---
+data/pressure_tests/*.csv
+
+# --- Scratch notes, not tracked project documentation ---
+notas.txt
+
+# --- Local agent/governance instructions, not part of the published project ---
+AGENTS.md
+CLAUDE.md
+
+# --- Local AI coding-assistant config, not part of the published project ---
+.claude/
+.codex/
+.cursor/
+.continue/
+.windsurf/
+.github/copilot-instructions.md
