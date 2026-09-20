@@ -35,7 +35,6 @@ Full detail: [docs/architecture.md](docs/architecture.md) and
 | `ros2_ws/src/` | ROS 2 Jazzy packages: `glove_controller`, `glove_estimator`, `glove_interfaces`, `pico_bridge`, `soft_glove_core`. |
 | `pico_firmware/` | Current, ROS 2-integrated Pico C firmware (+ host tests). |
 | `reference/rp2040_validated/` | **Frozen golden reference** RP2040 firmware (tag `rp2040-golden-v1`). Never modify. |
-| `tests/equivalence/` | Host C equivalence tests comparing current behavior against the golden reference. |
 | `tools/pressure/`, `tools/position/` | Python calibration and pressure/position sweep scripts. |
 | `docs/` | Project documentation (see [docs/README.md](docs/README.md) for the index). |
 | `data/pressure_tests/` | Raw experiment CSVs (gitignored, regenerable — see [data/README.md](data/README.md)). |
@@ -98,4 +97,4 @@ mechanisms first.
 frozen, validated behavioral reference. It must **never** be modified to
 match ROS 2 behavior — equivalence is validated the other way around, by
 testing the ROS 2 / current-firmware implementation against it (see
-`tests/equivalence/` and `docs/MIGRATION_PLAN.md`).
+`docs/MIGRATION_PLAN.md`).
