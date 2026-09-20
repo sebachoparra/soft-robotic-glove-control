@@ -22,7 +22,7 @@ En cada actualización UKF (50 ms), main.c lee s_hat y eta_hat sin escribir al e
 - Kp = 0.40*tau/K
 - b0_target = K/tau
 
-PI usa las ganancias disponibles en cada ejecución externa (500 ms). LADRC conserva omega_c=0.70, omega_o=2.50, el periodo LESO=50 ms, el filtro de b0 de 0.50 s y su corrección z2 += (b0_anterior-b0_nuevo)*P_ref. El objetivo b0 sigue mezclando 80 % nominal (B0_NOMINAL = 2.20) y 20 % identificado: target_b0 = 0.80 * B0_NOMINAL + 0.20 * b0_ident. La alternativa 100 % identificada (target_b0 = b0_ident) permanece comentada en el código. b0_active se aproxima al objetivo mediante el filtro; no coincide instantáneamente con K/tau.
+PI usa las ganancias disponibles en cada ejecución externa (500 ms). LADRC conserva omega_c=0.40, omega_o=2.50, el periodo LESO=50 ms, el filtro de b0 de 0.50 s y su corrección z2 += (b0_anterior-b0_nuevo)*P_ref. El objetivo b0 sigue mezclando 80 % nominal (B0_NOMINAL = 2.20) y 20 % identificado: target_b0 = 0.80 * B0_NOMINAL + 0.20 * b0_ident. La alternativa 100 % identificada (target_b0 = b0_ident) permanece comentada en el código. b0_active se aproxima al objetivo mediante el filtro; no coincide instantáneamente con K/tau.
 
 El observador original usa P_ref como entrada; se mantiene esa entrada tanto en LESO como en la compensación. No se sustituye por presión medida.
 
@@ -46,7 +46,7 @@ SET_Q ya no selecciona regiones. El feedforward ADRC existente sigue siendo un e
 
 ## Qué puede afirmarse matemáticamente
 
-Para una planta fija G(s)=K/(tau*s+1), sin retardos ni limitadores, el PI continuo C(s)=Kp+Ki/s cancela algebraicamente el polo y da T(s)=p1/(s+p1). El tiempo al 2 % es -ln(0.02)/0.40 = 9.780 s. Esto es una propiedad nominal del modelo congelado, no una garantía del sistema programado, discretizado y neumático real. La misma cifra no aplica automáticamente a LADRC, que mantiene omega_c=0.70 y el feedforward existente.
+Para una planta fija G(s)=K/(tau*s+1), sin retardos ni limitadores, el PI continuo C(s)=Kp+Ki/s cancela algebraicamente el polo y da T(s)=p1/(s+p1). El tiempo al 2 % es -ln(0.02)/0.40 = 9.780 s. Esto es una propiedad nominal del modelo congelado, no una garantía del sistema programado, discretizado y neumático real. La misma cifra no aplica automáticamente a LADRC, que ahora también usa omega_c=0.40 (igualado al polo nominal del PI) y el feedforward existente.
 
 La interpolación lineal entre anclas positivas también conserva positividad dentro de cada segmento; no cruza cero por sí sola. Se eligió logaritmo por la mezcla multiplicativa y los rangos relativos. Tampoco es correcto decir que una tabla de transiciones sea matemáticamente imposible de interpolar: faltaría definir y validar un modelo sobre ese dominio. Aquí se adopta la hipótesis más simple de modelos locales asignados a puntos medios.
 

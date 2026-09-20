@@ -182,7 +182,7 @@
 #define ESO_LOOP_MS                50
 #define ESO_TS_S                   0.050f
 
-#define LADRC_OMEGA_C              0.70f
+#define LADRC_OMEGA_C              0.40f
 
 #define LADRC_FF_MODEL_WEIGHT       0.30f
 #define LADRC_FF_MAX_UP_KPA         8.0f

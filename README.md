@@ -98,3 +98,12 @@ frozen, validated behavioral reference. It must **never** be modified to
 match ROS 2 behavior — equivalence is validated the other way around, by
 testing the ROS 2 / current-firmware implementation against it (see
 `docs/MIGRATION_PLAN.md`).
+
+## Hardware / PCB design
+
+See [hardware/pcb/](hardware/pcb/) for the PCB design files (schematics,
+board layout, Gerbers, BOM) as they're added.
+
+## Videos / Demos
+
+- _(add YouTube links here as they become available)_

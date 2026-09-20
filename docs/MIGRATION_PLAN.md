@@ -593,7 +593,7 @@ b0_active = b0_new
 ### 4.10 LADRC — class A
 
 ```
-LADRC_OMEGA_C           = 0.70
+LADRC_OMEGA_C           = 0.40
 LADRC_FF_MODEL_WEIGHT   = 0.30
 LADRC_FF_MAX_UP_KPA     = 8.0
 LADRC_FF_MAX_DOWN_KPA   = 5.0
@@ -1555,7 +1555,7 @@ architecture decision does **not** weaken any Tier-1/Tier-2 requirement.
 | T6 | Position PI | `Δp = Kp·(e−e_prev)`, `Δi = Ki·0.5·e`; no output jump on gain change at zero error; bumpless init seeds `e_prev` and all P_ref fields |
 | T7 | Rate limiter | +5.0 / −6.0 kPa per update; rate-limit **before** clamp; clamp [0, 170]; `saturated` at the 1e-6 threshold; `rate_limited` flag |
 | T8 | LESO + b0 | Euler update with β1=5.0, β2=6.25, Ts=0.050; α=0.0909090909; the `1e-5` snap; **invariant `z2 + b0·P_ref` preserved across a b0 change** (replicate the reference's 1000-change sweep); **pins `target_b0 = 0.80*B0_NOMINAL + 0.20*next.b0` exactly** (`main.c:963-966`) so any drift toward the stale `GAIN_SCHEDULING.md` formulation fails loudly — §11 D1 |
-| T9 | LADRC | `P_eq=−z2/b0`, `P_fb=(0.70/b0)·e`; γ piecewise map at 2.0/10.0; γ monotonically non-increasing until `SET_Q`; direction gate; FF clip [−5, +8]; `ff=0.30·Δq/K` |
+| T9 | LADRC | `P_eq=−z2/b0`, `P_fb=(0.40/b0)·e`; γ piecewise map at 2.0/10.0; γ monotonically non-increasing until `SET_Q`; direction gate; FF clip [−5, +8]; `ff=0.30·Δq/K` |
 | T10 | Pressure PI | Deadband early return **freezes** the integral and outputs 0; conditional integration on candidate magnitude > 1.0; sign-split form; clamp [0,1] then signed |
 | T11 | `magnitude_to_pulse` | Truncation (not rounding); ranges 5–80 and 10–100; endpoints at m=0 and m=1 |
 | T12 | Reversal FSM | Every transition in §4.12, including pending re-arm (no log line) and lockout satisfaction; 200 ms boundary; deadband clears `pending_reversal` |

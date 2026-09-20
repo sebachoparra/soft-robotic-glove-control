@@ -19,7 +19,7 @@ ESO_BETA1                 (2.0f * ESO_OMEGA_O)     // = 5.0
 ESO_BETA2                 (ESO_OMEGA_O * ESO_OMEGA_O)  // = 6.25
 ESO_LOOP_MS                50
 ESO_TS_S                   0.050f
-LADRC_OMEGA_C              0.70f
+LADRC_OMEGA_C              0.40f
 LADRC_FF_MODEL_WEIGHT       0.30f
 LADRC_FF_MAX_UP_KPA         8.0f
 LADRC_FF_MAX_DOWN_KPA       5.0f
