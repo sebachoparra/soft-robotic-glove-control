@@ -1,0 +1,16 @@
+std_msgs/Header header
+uint32 pico_timestamp_us
+uint32 seq
+float32 pressure_raw
+float32 pressure_vout
+float32 pressure_kpa
+float32 pressure_filtered_kpa
+float32 flex_raw
+float32 flex_filtered_raw
+int8 pneumatic_state
+bool pulse_active
+uint32 pulse_ms_remaining
+bool pump_on
+bool safety_latched
+uint32 pulse_alarm_fail_count
+uint8 watchdog_state

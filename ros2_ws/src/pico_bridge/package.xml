@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>pico_bridge</name>
+  <version>0.0.0</version>
+  <description>Pico I/O node boundary; Stage S scaffold.</description>
+  <maintainer email="jsebasparra@gmail.com">Sebastian Parra</maintainer>
+  <license>TODO</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclcpp</depend>
+  <depend>glove_interfaces</depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

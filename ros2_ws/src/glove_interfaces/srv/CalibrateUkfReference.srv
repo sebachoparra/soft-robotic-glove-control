@@ -1,0 +1,5 @@
+---
+bool success
+uint32 good_samples
+float32[4] q_rel0
+string message

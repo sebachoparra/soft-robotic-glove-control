@@ -1,0 +1,9 @@
+std_msgs/Header header
+bool link_up
+uint32 rx_frames
+uint32 tx_frames
+uint32 crc_errors
+uint32 framing_errors
+uint32 seq_gaps
+uint32 last_rx_pico_us
+uint32 reconnect_count
