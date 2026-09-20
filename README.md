@@ -99,8 +99,3 @@ frozen, validated behavioral reference. It must **never** be modified to
 match ROS 2 behavior — equivalence is validated the other way around, by
 testing the ROS 2 / current-firmware implementation against it (see
 `tests/equivalence/` and `docs/MIGRATION_PLAN.md`).
-
-## Acknowledgments
-
-Portions of the RP2040-to-ROS 2 migration work were assisted by OpenAI
-Codex and ChatGPT.
